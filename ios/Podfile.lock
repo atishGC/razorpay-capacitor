@@ -2,10 +2,16 @@ PODS:
   - Capacitor (2.4.6):
     - CapacitorCordova
   - CapacitorCordova (2.4.6)
+  - razorpay-pod (1.1.12)
 
 DEPENDENCIES:
   - "Capacitor (from `../node_modules/@capacitor/ios`)"
   - "CapacitorCordova (from `../node_modules/@capacitor/ios`)"
+  - razorpay-pod
+
+SPEC REPOS:
+  trunk:
+    - razorpay-pod
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -16,7 +22,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Capacitor: 0f131577d41c082931f00cc080e2289d503465c8
   CapacitorCordova: 3375b39b5ebca770ac7869f85e4dea32a642c9e0
+  razorpay-pod: e2e8cf25aea59eef51c6851716f188df71adab86
 
-PODFILE CHECKSUM: e66d6fa04b0daaf06d8498d39637adf77139c716
+PODFILE CHECKSUM: 4ff7b93a5068f7517a8a2c9023643f83cceaaa39
 
 COCOAPODS: 1.10.1

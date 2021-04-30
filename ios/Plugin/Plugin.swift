@@ -32,26 +32,28 @@ public class Checkout: CAPPlugin {
     }
 }
 
-extension Checkout : RazorpayPaymentCompletionProtocol, ExternalWalletSelectionProtocol {
+extension Checkout : RazorpayPaymentCompletionProtocolWithData, ExternalWalletSelectionProtocol {
+    
+    public func onPaymentError(_ code: Int32, description str: String, andData response: [AnyHashable : Any]?) {
+        if let call = call {
+            call.reject((str))
+        }
+    }
+    
     
     public func onPaymentError(_ code: Int32, description str: String) {
         if let call = call {
-            call.reject("\(code): \(str)")
+            call.reject((str))
         }
     }
     
     public func onPaymentSuccess(_ payment_id: String, andData response: [AnyHashable : Any]?) {
         if let call = call {
-            print("success: ", payment_id)
-            print("success: ", response as Any)
             
             if let response = response{
                 
                 let order_id = response["razorpay_order_id"] as! String
                 let signature = response["razorpay_signature"] as! String
-                
-                print("success: orderid", order_id)
-                print("success: signature", signature)
                 
                 let jsonObject: [String: Any]  =
                     [
